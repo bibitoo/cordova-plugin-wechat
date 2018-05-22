@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-wechat",
-  "version": "2.3.0",
+  "name": "cordova-plugin-wechat-c6",
+  "version": "2.5.0",
   "description": "A cordova plugin, a JS version of Wechat SDK",
   "cordova": {
-    "id": "cordova-plugin-wechat",
+    "id": "cordova-plugin-wechat-c6",
     "platforms": [
       "ios",
       "android"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xu-li/cordova-plugin-wechat.git"
+    "url": "git+https://github.com/bibitoo/cordova-plugin-wechat.git"
   },
   "keywords": [
     "cordova",

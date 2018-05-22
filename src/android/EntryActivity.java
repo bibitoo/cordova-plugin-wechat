@@ -96,15 +96,15 @@ public class EntryActivity extends Activity implements IWXAPIEventHandler {
                 ctx.error(Wechat.ERROR_WECHAT_RESPONSE_COMMON);
                 break;
             default:
-                ctx.error(Wechat.ERROR_WECHAT_RESPONSE_UNKNOWN);
+            	ctx.error("["+resp.errCode + "]"+Wechat.ERROR_WECHAT_RESPONSE_UNKNOWN);
                 break;
         }
 
         // restore appid
-        final String appid = Wechat.getAppId();
+        final String appid = Wechat.instance.getAppId();
         final String savedAppId = Wechat.getSavedAppId(this);
         if (!savedAppId.equals(appid)) {
-            Wechat.saveAppId(this, Wechat.getAppId());
+            Wechat.saveAppId(this, Wechat.instance.getAppId());
         }
 
         finish();

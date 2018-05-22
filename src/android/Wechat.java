@@ -42,6 +42,7 @@ import java.io.InputStream;
 
 public class Wechat extends CordovaPlugin {
 
+	public static Wechat instance ;
     public static final String TAG = "Cordova.Plugin.Wechat";
 
     public static final String PREFS_NAME = "Cordova.Plugin.Wechat";
@@ -111,6 +112,8 @@ public class Wechat extends CordovaPlugin {
         initWXAPI();
 
         Log.d(TAG, "plugin initialized.");
+        
+        Wechat.instance = this;
     }
 
     protected void initWXAPI() {
@@ -278,7 +281,7 @@ public class Wechat extends CordovaPlugin {
 
         try {
             final String appid = params.getString("appid");
-            final String savedAppid = getAppId(cordova.getActivity());
+             String savedAppid = getAppId();
             if (!savedAppid.equals(appid)) {
                 this.saveAppId(cordova.getActivity(), appid);
             }
@@ -595,7 +598,7 @@ public class Wechat extends CordovaPlugin {
         return null;
     }
 
-    public static String getAppId() {
+    public  String getAppId() {
         if (appId == null) {
             appId = preferences.getString(WXAPPID_PROPERTY_KEY, "");
         }
